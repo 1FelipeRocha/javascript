@@ -1,40 +1,30 @@
-function verificar() {
-    var data = new Date()
-    var ano = data.getFullYear()
-    var fano = document.getElementById('txtano')
-    var res = document.getElementById('res')
-    if (fano.value.length == 0 || Number(fano.value) > ano) {
-        window.alert('[ERRO] Verifique os dados e tente novamente')
+function contar() {
+    var ini = document.getElementById('txti')
+    var fim = document.getElementById('txtf')
+    var passo = document.getElementById('txtp')
+    var res = document.getElementById ('res')
+
+    if (ini.value.length == 0 || fim.value.length == 0 || passo.value.length == 0) {
+        res.innerHTML = 'Impossível contar!'
+        window.alert('[ERRO] faltam dados!')
+    
     } else {
-        var fsex = document.getElementsByName('radsex')
-        var idade = ano - Number(fano.value)
-        var genero = ''
-        var img = document.createElement('img')
-        img.setAttribute('id', 'foto')
-        if (fsex[0].checked) {
-            genero = 'Homem'
-            if (idade >=0 && idade < 10) {
-                img.setAttribute('src', 'foto-bebe-m.png' )
-            } else if (idade < 21) {
-                img.setAttribute('src', 'foto-jovem-m.png')
-            } else if (idade < 50) {
-                img.setAttribute('src', 'foto-adulto-m.png')
-            } else {
-                img.setAttribute('src', 'foto-idoso-m.png')
-            }
-      } else if (fsex[1].checked) {
-        genero = 'Mulher'
-        if (idade >=0 && idade <10) {
-            img.setAttribute('src', 'foto-bebe-f.png')
-        } else if (idade < 21) {
-            img.setAttribute('src', 'foto-jovem-f.png')
-        } else if (idade < 50) {
-            img.setAttribute('src', 'foto-adulto-f.png')
-        } else {
-            img.setAttribute('src', 'foto-idoso-f.png')
-      }}
-      res.style.textAlign = 'center'
-      res.innerHTML = `Detectamos ${genero} com ${idade} anos.`
-      res.appendChild(img)
+        res.innerHTML = 'Contando: <br>'
+        var i = Number(ini.value)
+        var f = Number(fim.value)
+        var p = Number(passo.value)
+        if (p <= 0) {
+            window.alert('Passo invalide!Considerando PASSO 1')
+            p = 1
+        }
+            if (i < f) {
+        for (var c = i; c <= f; c += p) {
+            res.innerHTML += ` ${c} \u{1F449}`
+        } 
+    } else {
+        for (var c = i; c <= f; c += p) {
+            res.innerHTML += ` ${c} \u{1F449}`
+        } res.innerHTML += `\u{1F3C1}`
+    } 
     }
 }
