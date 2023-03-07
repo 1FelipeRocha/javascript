@@ -12,7 +12,6 @@ carro.mudarCor = function (x) {
     carro.cor = x;
 };
 
-carro.mudarCor(azul)
 
 carro.obterCor = function () {
     return carro.cor;
@@ -31,10 +30,9 @@ carro.obterMarca = function () {
 };
 
 carro.obterMarcaModelo = function () {
-     return `Esse carro é um ${carro.obterMarca} ${carro.obterModelo}`;
+     return `Esse carro é um ${carro.obterMarca()} ${carro.obterModelo()}`;
 };
 
-console.log(carro.obterMarcaModelo())
 
 carro.addPessoas = function (x) {
     var totalPessoas = carro.quantidadePessoas + x;
