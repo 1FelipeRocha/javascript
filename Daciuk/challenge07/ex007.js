@@ -25,7 +25,7 @@ while (num <=20){
 
 
 for (var par = 100; par <= 120; par % 2 === 0? console.log(par) : '', par++){}
-for (var impar = 111; par <= 125; par % 2 !== 0? console.log(impar) : '', impar++){}
+for (var impar = 111; impar <= 125; impar % 2 !== 0? console.log(impar) : '', impar++){}
 
 
 
