@@ -13,7 +13,7 @@ resolver o problema corretamente.
 var five = Number ('5');
 console.log( five + ' é número?', typeof five === 'number' );
 
-var concat = String (10 + 10);
+var concat = String (10) + String (10);
 console.log( '"' + concat + '" é uma string? E é igual a "1010"?', typeof concat === 'string' );
 
 /*
@@ -26,11 +26,11 @@ função receberá dois parâmetros e retornará a operação referente à sua
 propriedade, usando os valores passados por parâmetro.
 */
 var operation = {
-    '+': function sum(x,y){return x+y;}, 
-    '-': function sub(x,y){return x-y;}, 
-    '*': function multi(x,y){return x*y;}, 
-    '/': function divi(x,y){return x/y;}, 
-    '%': function resto(x,y){return x%y;}
+    '+': function (x,y){return x+y;}, 
+    '-': function (x,y){return x-y;}, 
+    '*': function (x,y){return x*y;}, 
+    '/': function (x,y){return x/y;}, 
+    '%': function (x,y){return x%y;}
 }
 
 /*
@@ -44,10 +44,9 @@ Caso contrário, "false".
 - O desafio é fazer o retorno sem usar "if" ou "switch".
 */
 function isOperatorValid (z){
-    z = '+'
-    console.log (typeof z === true );
+    return !!operation[z];
 }
-
+console.log(isOperatorValid('+'))
 /*
 Agora vamos criar a calculadora.
 - Crie uma função chamada `calculator`, que receberá como parâmetro um
@@ -60,7 +59,16 @@ parâmetros;
 operador passado para a função "calculator", e passando para esse método
 os dois parâmetros da função de retorno de "calculator".
 */
-// ?
+function calculator (operador){
+    if (operador !== operation){
+       return false
+    } else if (a === Number && b === Number ){
+        return function newfunc(a,b){
+        return operation();
+    };
+}; return false
+}
+
 
 /*
 Crie uma função chamada "showOperationMessage" que recebe três parâmetros:
@@ -69,7 +77,9 @@ deve ser a frase:
 'A operação [NUMBER1] [OPERATOR] [NUMBER2] =';
 Essa função mostrará a mensagem da operação que criaremos mais abaixo.
 */
-// ?
+function showOperationMessage(c,d,e){
+    return `A operação ${c} ${d} ${e} =`;
+}
 
 /*
 Crie uma função chamada "showErrorMessage" que recebe um parâmetro: o
@@ -77,7 +87,9 @@ operador da operação cálculo, quando a operação não for válida.
 Essa função deverá retornar a frase:
 'Operação "[OPERATOR]" não permitida!'
 */
-// ?
+function showErrorMessage (f){
+    return `Operação ${} não permitida!`;
+}
 
 /*
 Nossa calculadora está pronta! Agora vamos testá-la:
