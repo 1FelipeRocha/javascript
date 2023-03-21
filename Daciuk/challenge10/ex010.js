@@ -60,13 +60,14 @@ operador passado para a função "calculator", e passando para esse método
 os dois parâmetros da função de retorno de "calculator".
 */
 function calculator (operador){
-    if (operador !== operation){
-       return false
-    } else if (a === Number && b === Number ){
-        return function newfunc(a,b){
-        return operation();
-    };
-}; return false
+    if (!isOperatorValid(operador)) {
+       return false;
+    } return function (a,b){
+        if(typeof a !== 'number' || typeof b !== 'number') {
+            return false;
+    }
+    return operation [operador](a,b);
+};
 }
 
 
@@ -88,7 +89,7 @@ Essa função deverá retornar a frase:
 'Operação "[OPERATOR]" não permitida!'
 */
 function showErrorMessage (f){
-    return `Operação ${} não permitida!`;
+    return `Operação ${f} não permitida!`;
 }
 
 /*
