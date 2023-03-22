@@ -78,8 +78,8 @@ deve ser a frase:
 'A operação [NUMBER1] [OPERATOR] [NUMBER2] =';
 Essa função mostrará a mensagem da operação que criaremos mais abaixo.
 */
-function showOperationMessage(c,d,e){
-    return `A operação ${c} ${d} ${e} =`;
+function showOperationMessage(operador, number1, number2){
+    return `A operação ${number1} ${operador} ${number2} =`;
 }
 
 /*
@@ -88,8 +88,8 @@ operador da operação cálculo, quando a operação não for válida.
 Essa função deverá retornar a frase:
 'Operação "[OPERATOR]" não permitida!'
 */
-function showErrorMessage (f){
-    return `Operação ${f} não permitida!`;
+function showErrorMessage (operador){
+    return `Operação ${operador} não permitida!`;
 }
 
 /*
@@ -98,15 +98,17 @@ PASSO 1:
 - Declare 3 variáveis: "number1" e "number2", iniciando com valor zero, e
 "operationSignal", sem valor por enquanto.
 */
-// ?
-
+var number1 = 0
+var number2 = 0
+var operationSignal;
 /*
 PASSO 2:
 Atribua à variável operationSignal o operador de soma, e declare uma
 variável chamada "sum", que receba a função "calculator", passando por
 parâmetro a variável que recebeu o sinal da operação.
 */
-// ?
+operationSignal = '+';
+var sum = calculator(operationSignal);
 
 /*
 PASSO 3:
@@ -120,18 +122,42 @@ parâmetros para o método "log" de "console":
 - O segundo, a função de soma, passando os dois operandos.
 - Se "sum" for "false", mostrar no console a mensagem de erro.
 */
-// ?
+if (sum) {
+    number1 = 10;
+    number2 = 12;
+    console.log(showOperationMessage(operationSignal, number1, number2), sum(number1, number2));
+} else {
+    console.log(showOperationMessage(operationSignal))
+}
 
 /*
 Repita desde o "PASSO 2" com as operações de subtração, multiplicação,
 divisão e resto. Crie variáveis com os nomes "subtraction",
 "multiplication", "division" e "mod".
 */
-// ?
+operationSignal = '-';
+var subtraction = calculator(operationSignal);
+if (subtraction) {
+    number1 = 8;
+    number2 = 11;
+    console.log(showOperationMessage(operationSignal, number1, number2), subtraction(number1, number2));
+} else {
+    console.log(showOperationMessage(operationSignal))
+}
+
 
 /*
 Repita o PASSO 2 novamente, mas passando um operador inválido, para ver se
 a mensagem de erro será mostrada no console.
 */
-// ?
+operationSignal = 'lala';
+var invalid = calculator(operationSignal);
+if (invalid) {
+    number1 = 8;
+    number2 = 11;
+    console.log(showOperationMessage(operationSignal, number1, number2), subtraction(number1, number2));
+} else {
+    console.log(showErrorMessage(operationSignal))
+}
+
 })();
